@@ -23,9 +23,6 @@
             </tbody>
         </table>
     @endif
-    
-    {{-- ページネーションのリンク --}}
-    {{ $tasks->links() }}
 
     {{-- メッセージ作成ページへのリンク --}}
     {!! link_to_route('tasks.create', '新規メッセージの投稿', [], ['class' => 'btn btn-primary']) !!}
