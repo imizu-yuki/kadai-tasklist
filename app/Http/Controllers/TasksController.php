@@ -30,11 +30,11 @@ class TasksController extends Controller
      */
      public function create()
     {
-        $tasks = new Task;
+        $task = new Task;
 
         // メッセージ作成ビューを表示
         return view('tasks.create', [
-            'tasks' => $tasks,
+            'task' => $task,
         ]);
     }
 
