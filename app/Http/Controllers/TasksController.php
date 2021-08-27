@@ -18,16 +18,13 @@ class TasksController extends Controller
 
     public function index()
     {
-        $tasks = \Auth::user()->tasks();
-        $tasks = Task::paginate(10);
-        
         $data = [];
         if (\Auth::check()) { // 認証済みの場合
             // 認証済みユーザを取得
             $user = \Auth::user();
             // ユーザの投稿の一覧を作成日時の降順で取得
             // （後のChapterで他ユーザの投稿も取得するように変更しますが、現時点ではこのユーザの投稿のみ取得します）
-            $tasklist = $user->tasklist()->orderBy('created_at', 'desc')->paginate(10);
+            $tasks = $user->tasks()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
                 'user' => $user,
