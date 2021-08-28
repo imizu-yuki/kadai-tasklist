@@ -21,6 +21,7 @@
                 @include('tasks.tasks')
             </div>
         </div>
+    @endif
                 {{-- ユーザ登録ページへのリンク --}}
                 {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
             </div>
