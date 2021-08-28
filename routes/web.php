@@ -17,7 +17,7 @@ Route::get('/', 'TasksController@index');
 Route::group(['middleware' => ['auth']], function () {
     // ここに指定したルーティングはログインしていないとアクセスできない
     // タスク関連の操作(一覧表示/詳細表示/編集/更新/新規作成/登録/削除)のルーティング
-    Route::resource('id', 'TasksController', ['only' => ['tasks', 'show', 'edit', 'create']]);
+    Route::resource('tasks', 'TasksController', ['only' => ['show', 'edit', 'create']]);
 });
 
 // ユーザ登録
