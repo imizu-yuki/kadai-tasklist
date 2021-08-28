@@ -82,9 +82,14 @@ class TasksController extends Controller
         $task->status = $request->status;   // 追加
         $task->content = $request->content;
         $task->save();
+        
+        // 認証済みユーザ（閲覧者）の投稿として作成
+        $request->user()->tasks()->create([
+            'content' => $request->content,
+        ]);
 
-        // トップページへリダイレクトさせる
-        return redirect('/');
+        // 前のページへリダイレクトさせる
+        return back();
     }
     
     /**
