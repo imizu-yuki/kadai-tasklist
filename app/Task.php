@@ -13,4 +13,13 @@ class Task extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'content', 'status',
+    ];
 }
