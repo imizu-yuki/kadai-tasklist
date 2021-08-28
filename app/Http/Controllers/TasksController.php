@@ -112,14 +112,19 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        // idの値でメッセージを検索して取得
-        if (\Auth::id() === $task->user_id) {
+        // 編集対象のタスクを検索して取得
         $task = Task::findOrFail($id);
-        }
-        // メッセージ編集ビューでそれを表示
-        return view('tasks.edit', [
+        
+        // idの値でメッセージを検索して取得
+       if (\Auth::id() === $task->user_id) {
+            // 自分のタスクの場合
+             return view('tasks.edit', [
             'task' => $task,
-        ]);
+        ]); // タスク編集ビューでそれを表示
+        } else {
+            // 他人のタスクの場合
+            return redirect(‘/’);
+        }
     }
 
     /**
