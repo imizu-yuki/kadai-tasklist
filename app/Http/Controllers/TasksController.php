@@ -83,8 +83,8 @@ class TasksController extends Controller
             'status' => $request->status,
         ]);
 
-        // 前のページへリダイレクトさせる
-        return back();
+        // トップページへリダイレクトさせる
+        return redirect('/');
     }
     
     /**
