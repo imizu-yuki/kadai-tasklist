@@ -123,7 +123,7 @@ class TasksController extends Controller
         ]); // タスク編集ビューでそれを表示
         } else {
             // 他人のタスクの場合
-            return redirect(‘/’);
+            return redirect('/');
         }
     }
 
