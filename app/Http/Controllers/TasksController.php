@@ -36,18 +36,6 @@ class TasksController extends Controller
         return view('welcome', $data);
     }
     
-        /**
-     * ログインユーザーIDとタスクのユーザーIDが異なるときにHttpExceptionをスローする
-     */
-    protected function checkUserID(Task $task, int $status = 404)
-    {
-        // ログインユーザーIDとタスクのユーザーIDが異なるとき
-        if (Auth::user()->id != $task->user_id) {
-            // HTTPレスポンスステータスコードを返却
-            abort($status);
-        }
-    }
-
     /**
      * Show the form for creating a new resource.
      *
